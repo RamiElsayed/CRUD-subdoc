@@ -1,4 +1,4 @@
-const { Application, User } = require('../models');
+const { Application, User } = require('../../models');
 
 module.exports = {
   getApplications(req, res) {
