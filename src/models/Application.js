@@ -1,7 +1,6 @@
-const { Schema, model } = require('mongoose');
-const Tag = require('./Tag');
+const { Schema, model } = require("mongoose");
+const Tag = require("./Tag");
 
-// Schema to create Post model
 const applicationSchema = {
   published: {
     type: Boolean,
@@ -21,21 +20,18 @@ const applicationSchema = {
     maxLength: 500,
   },
   tags: [Tag],
-}
-const schema = new Schema(applicationSchema,
-  {
-    toJSON: {
-      virtuals: true,
-    },
-    id: false,
-  }
-);
+};
+const schema = new Schema(applicationSchema, {
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
+});
 
-schema
-  .virtual('tagsCount').get(function () {
-    return this.tags.length;
-  });
+schema.virtual("tagsCount").get(function () {
+  return this.tags.length;
+});
 
-const Application = model('application', schema);
+const Application = model("Application", schema);
 
 module.exports = Application;
