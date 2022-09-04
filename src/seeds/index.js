@@ -83,9 +83,7 @@ const init = async () => {
           const randomApplicationIdIndex = Math.floor(
             Math.random() * applicationIds.length
           );
-
-          const randomApplicationId = applicationIds
-          [randomApplicationIdIndex];
+          const randomApplicationId = applicationIds[randomApplicationIdIndex];
 
           return randomApplicationId;
         });
@@ -94,7 +92,7 @@ const init = async () => {
 
       return user;
     });
-    await User.insertMany(usersWithApplications)
+    await User.insertMany(usersWithApplications);
 
     console.log("[INFO]: Successfully seeded users");
   } catch (error) {
